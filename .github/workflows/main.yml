@@ -4,7 +4,7 @@ on:
   schedule:
     # 每天北京时间早上 07:30 (UTC时间 23:30)
     # 如果想改时间，改 23:30 那个数字
-    - cron: '30 23 * * *'
+    - cron: '30 0 * * *'
   workflow_dispatch: # 允许你手动点按钮测试
 
 jobs:
