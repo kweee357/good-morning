@@ -1,0 +1,28 @@
+name: Daily Push
+
+on:
+  schedule:
+    # 每天北京时间早上 07:30 (UTC时间 23:30)
+    # 如果想改时间，改 23:30 那个数字
+    - cron: '30 23 * * *'
+  workflow_dispatch: # 允许你手动点按钮测试
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          
+      - name: Run main script
+        # 这里的 main.py 必须和你上传的文件名一致
+        run: python 123.py
